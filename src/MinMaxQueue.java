@@ -1,11 +1,11 @@
 import java.util.*;
 
-public class minMaxQueue {
+public class MinMaxQueue {
     Queue<Integer> queue;
     Deque<Integer> deque;
     boolean isMax;
 
-    public minMaxQueue(boolean isMax) {
+    public MinMaxQueue(boolean isMax) {
         this.queue = new LinkedList<>();
         this.deque = new LinkedList<>();
         this.isMax = isMax;
