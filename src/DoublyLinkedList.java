@@ -1,3 +1,10 @@
+/**
+ * An implementation of a Doubly Linked List.
+ * Each node in the list has pointers to both the next and previous nodes.
+ *
+ * @author Mark Chen, chenmark33@gmail.com
+ */
+
 public class DoublyLinkedList {
     DLLNode head;
     DLLNode tail;

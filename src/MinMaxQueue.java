@@ -1,54 +1,67 @@
+/**
+ * An implementation of a queue with both max and min APIs.
+ * This queue supports enqueue, dequeue, min, and max operations.
+ *
+ * The min operation returns the minimum element currently stored in the queue.
+ * The max operation returns the maximum element currently stored in the queue.
+ *
+ * @author Mark Chen, chenmark33@gmail.com
+ */
 import java.util.*;
 
-public class MinMaxQueue {
-    Queue<Integer> queue;
-    Deque<Integer> deque;
-    boolean isMax;
+public class MinMaxQueue<T extends Comparable<T>> {
+    private Queue<T> queue;
+    private Deque<T> minDeque;
+    private Deque<T> maxDeque;
 
-    public MinMaxQueue(boolean isMax) {
+    public MinMaxQueue() {
         this.queue = new LinkedList<>();
-        this.deque = new LinkedList<>();
-        this.isMax = isMax;
+        this.minDeque = new LinkedList<>();
+        this.maxDeque = new LinkedList<>();
     }
 
-    public void enqueue(int e) {
+    public void enqueue(T e) {
         queue.add(e);
-        while (!deque.isEmpty()) {
-            if (isMax ? deque.getLast() >= e : deque.getLast() <= e) {
+        while (!minDeque.isEmpty()) {
+            if (minDeque.getLast().compareTo(e) <= 0) {
                 break;
             }
-            deque.removeLast();
+            minDeque.removeLast();
         }
-        deque.addLast(e);
+        while (!maxDeque.isEmpty()) {
+            if (maxDeque.getLast().compareTo(e) >= 0) {
+                break;
+            }
+            maxDeque.removeLast();
+        }
+        minDeque.addLast(e);
+        maxDeque.addLast(e);
     }
 
-    public int dequeue() {
+    public T dequeue() {
         if (!queue.isEmpty()) {
-            int result = queue.remove();
-            if (result == deque.getFirst()) {
-                deque.removeFirst();
+            T result = queue.remove();
+            if (result == minDeque.getFirst()) {
+                minDeque.removeFirst();
+            }
+            if (result == maxDeque.getFirst()) {
+                maxDeque.removeFirst();
             }
             return result;
         }
         throw new NoSuchElementException("Called dequeue() on empty queue!");
     }
 
-    public int getMin() {
-        if (isMax) {
-            throw new NoSuchElementException("Called getMin() on max queue!");
-        }
-        if (!deque.isEmpty()) {
-            return deque.getFirst();
+    public T getMin() {
+        if (!minDeque.isEmpty()) {
+            return minDeque.getFirst();
         }
         throw new NoSuchElementException("Empty Queue");
     }
 
-    public int getMax() {
-        if (!isMax) {
-            throw new NoSuchElementException("Called getMax() on min queue!");
-        }
-        if (!deque.isEmpty()) {
-            return deque.getFirst();
+    public T getMax() {
+        if (!minDeque.isEmpty()) {
+            return minDeque.getFirst();
         }
         throw new NoSuchElementException("Empty Queue");
     }

@@ -1,3 +1,13 @@
+/**
+ * An implementation of a Least Recently Used (LRU) Cache with a specified capacity.
+ * When the cache is about to go over capacity, it evicts the least recently use item.
+ * The cache supports get and put operations.
+ *
+ * The get operation gets the value of the key if the key exists in the cache.
+ * The put operation sets or inserts the value of the key if it is not already present.
+ *
+ * @author Mark Chen, chenmark33@gmail.com
+ */
 import java.util.*;
 
 public class LRUCache {
