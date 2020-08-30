@@ -1,6 +1,6 @@
 /**
  * An implementation of a Least Recently Used (LRU) Cache with a specified capacity.
- * When the cache is about to go over capacity, it evicts the least recently use item.
+ * When the cache is about to go over capacity, it evicts the least recently used item.
  * The cache supports get and put operations.
  *
  * The get operation gets the value of the key if the key exists in the cache.
