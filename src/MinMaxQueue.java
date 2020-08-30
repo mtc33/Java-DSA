@@ -20,6 +20,20 @@ public class MinMaxQueue<T extends Comparable<T>> {
         this.maxDeque = new LinkedList<>();
     }
 
+    public boolean isEmpty() {
+        return queue.isEmpty();
+    }
+
+    public void clear() {
+        queue.clear();;
+        minDeque.clear();
+        maxDeque.clear();
+    }
+
+    public int size() {
+        return queue.size();
+    }
+
     public void enqueue(T e) {
         queue.add(e);
         while (!minDeque.isEmpty()) {
@@ -52,6 +66,14 @@ public class MinMaxQueue<T extends Comparable<T>> {
         throw new NoSuchElementException("Called dequeue() on empty queue!");
     }
 
+    public T peek() {
+        return queue.peek();
+    }
+
+    public boolean contains(T element) {
+        return queue.contains(element);
+    }
+
     public T getMin() {
         if (!minDeque.isEmpty()) {
             return minDeque.getFirst();
@@ -64,9 +86,5 @@ public class MinMaxQueue<T extends Comparable<T>> {
             return minDeque.getFirst();
         }
         throw new NoSuchElementException("Empty Queue");
-    }
-
-    public int size() {
-        return queue.size();
     }
 }
