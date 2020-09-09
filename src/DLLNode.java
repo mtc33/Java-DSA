@@ -44,4 +44,9 @@ public class DLLNode {
     public void setPrev(DLLNode prev) {
         this.prev = prev;
     }
+
+    @Override
+    public String toString() {
+        return this.val + " ";
+    }
 }
