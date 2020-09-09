@@ -56,13 +56,18 @@ public class DoublyLinkedList {
         return removed;
     }
 
+    /**
+     * Advanced print function
+     * @return String
+     */
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
         DLLNode ptr = head;
         while (ptr != null) {
-            System.out.print("[" + ptr.val + "] -> ");
+            sb.append((ptr.prev == null ? "n <- [" : "[") + ptr.val + (ptr.next == null ? "] -> n" : "] <-> "));
             ptr = ptr.next;
         }
-        return "";
+        return sb.toString();
     }
 }
