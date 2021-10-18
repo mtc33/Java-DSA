@@ -1,10 +1,3 @@
-/**
- * An implementation of a Doubly Linked List.
- * Each node in the list has pointers to both the next and previous nodes.
- *
- * @author Mark Chen, chenmark33@gmail.com
- */
-
 public class DoublyLinkedList {
     DLLNode head;
     DLLNode tail;
@@ -29,7 +22,6 @@ public class DoublyLinkedList {
     }
 
     public DLLNode remove(DLLNode node) {
-        DLLNode removed = node;
         if (node == head) {
             if (head.next != null) {
                 head = head.next;
@@ -53,7 +45,7 @@ public class DoublyLinkedList {
             node.next.prev = node.prev;
         }
         size--;
-        return removed;
+        return node;
     }
 
     /**

@@ -1,12 +1,7 @@
 /**
- * An implementation of a Fenwick Tree supporting log(n) range queries
- * This Fenwick Tree supports update, sum, and rangeSum operations
- *
  * The update operation updates the element at a certain index by delta
  * The sum operation returns the prefix sum from 0 to i
  * The rangeSum operation returns the sum from an inclusive range [left, right]
- *
- * @author Mark Chen, chenmark33@gmail.com
  */
 public class FenwickTree {
     int size;

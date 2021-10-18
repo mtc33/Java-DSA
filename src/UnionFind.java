@@ -1,14 +1,3 @@
-/**
- * An implementation of a a Union Find (Disjoint Set) data structure.
- * This Union Find supports find, sizeOf, inSameSet, and union operations.
- *
- * The find operation returns the index of the root of the given element's "tree", or set.
- * The sizeOf operation returns the size of the given element's set.
- * The inSameSet operation returns true if the two given elements belong to the same set.
- * The union operation merges the sets of two given elements together.
- *
- * @author Mark Chen, chenmark33@gmail.com
- */
 import java.util.*;
 
 public class UnionFind {
@@ -31,14 +20,13 @@ public class UnionFind {
         return -size[rootIndex];
     }
 
-    public boolean inSameSet(int x, int y) {
-        return (find(x) == find(y));
-    }
-
     public boolean union(int x, int y) {
         int rootX = find(x), rootY = find(y);
         if (rootX == rootY) return false;
 
+        // Find the smaller set.
+        // Add the smaller set's size to the bigger one's root
+        // Set the smaller set's root to the bigger one
         int sizeX = sizeOf(x), sizeY = sizeOf(y);
         if (sizeX < sizeY) {
             size[rootY] -= sizeX;

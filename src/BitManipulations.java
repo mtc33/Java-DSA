@@ -1,8 +1,3 @@
-/**
- * Implementations of important bit shifting/manipulation methods and concepts
- *
- * @author Mark Chen, chenmark33@gmail.com
- */
 import java.util.*;
 
 public class BitManipulations {
