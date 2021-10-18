@@ -53,8 +53,8 @@ public class MaxQueue<T extends Comparable<T>> {
     }
 
     public T getMax() {
-        if (!minDeque.isEmpty()) {
-            return minDeque.getFirst();
+        if (!maxDeque.isEmpty()) {
+            return maxDeque.getFirst();
         }
         throw new NoSuchElementException("Empty Queue");
     }
